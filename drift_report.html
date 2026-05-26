@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Drift Report</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #f1f5f9; padding: 2rem; color: #1e293b; }
+  h1 { font-size: 1.4rem; font-weight: 700; margin-bottom: .25rem; }
+  .meta { color: #64748b; font-size: .85rem; margin-bottom: 1.5rem; }
+  .summary { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .box { background: white; border-radius: 10px; padding: 1rem 1.5rem; border: 1px solid #e2e8f0; min-width: 120px; }
+  .box .n { font-size: 2rem; font-weight: 700; }
+  .box .l { font-size: .75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: .05em; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1rem; }
+  .card { background: white; border-radius: 10px; padding: 1rem 1.25rem; border: 1px solid #e2e8f0; }
+  .card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: .25rem; }
+  .col-name { font-weight: 600; font-size: 1rem; }
+  .badge { color: white; font-size: .7rem; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+  .col-type { font-size: .75rem; color: #94a3b8; margin-bottom: .75rem; }
+  .grid-head { display: grid; grid-template-columns: 1fr 1fr 1fr; font-size: .75rem; color: #94a3b8; font-weight: 500; padding: 4px 0; border-bottom: 1px solid #f1f5f9; margin-bottom: 2px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr 1fr; font-size: .85rem; padding: 4px 0; border-bottom: 1px solid #f8fafc; }
+  .row.tests { font-family: monospace; font-size: .78rem; color: #475569; grid-template-columns: 80px 1fr; }
+</style>
+</head>
+<body>
+  <h1>Drift Report</h1>
+  <div class="meta">Reference: <b>sample_data/reference.csv</b> &nbsp;|&nbsp; Current: <b>sample_data/current.csv</b> &nbsp;|&nbsp; 2026-05-26 14:50</div>
+  <div class="summary">
+    <div class="box"><div class="n">3</div><div class="l">Columns</div></div>
+    <div class="box"><div class="n" style="color:#ef4444">2</div><div class="l">Drifted</div></div>
+    <div class="box"><div class="n" style="color:#22c55e">1</div><div class="l">Stable</div></div>
+  </div>
+  <div class="cards">
+        <div class="card" style="border-top:3px solid #ef4444">
+          <div class="card-head">
+            <span class="col-name">age</span>
+            <span class="badge" style="background:#ef4444">DRIFT</span>
+          </div>
+          <div class="col-type">numerical</div>
+          <div class="grid-head"><span>Metric</span><span>Reference</span><span>Current</span></div>
+          
+            <div class="row"><span>Mean</span><span>34.82</span><span>49.259</span></div>
+            <div class="row"><span>Std</span><span>9.492</span><span>12.084</span></div>
+            <div class="row tests"><span>KS test</span><span colspan="2">stat=0.506 &nbsp; p=0.0 &nbsp; ⚠ drifted</span></div>
+            <div class="row tests"><span>PSI</span><span colspan="2">1.924 (significant) &nbsp; ⚠ drifted</span></div>
+            
+        </div>
+        <div class="card" style="border-top:3px solid #22c55e">
+          <div class="card-head">
+            <span class="col-name">income</span>
+            <span class="badge" style="background:#22c55e">OK</span>
+          </div>
+          <div class="col-type">numerical</div>
+          <div class="grid-head"><span>Metric</span><span>Reference</span><span>Current</span></div>
+          
+            <div class="row"><span>Mean</span><span>61080.274</span><span>61550.934</span></div>
+            <div class="row"><span>Std</span><span>14910.983</span><span>15929.265</span></div>
+            <div class="row tests"><span>KS test</span><span colspan="2">stat=0.035 &nbsp; p=0.5729 &nbsp; ✓ ok</span></div>
+            <div class="row tests"><span>PSI</span><span colspan="2">0.0137 (none) &nbsp; ✓ ok</span></div>
+            
+        </div>
+        <div class="card" style="border-top:3px solid #ef4444">
+          <div class="card-head">
+            <span class="col-name">score</span>
+            <span class="badge" style="background:#ef4444">DRIFT</span>
+          </div>
+          <div class="col-type">numerical</div>
+          <div class="grid-head"><span>Metric</span><span>Reference</span><span>Current</span></div>
+          
+            <div class="row"><span>Mean</span><span>28.761</span><span>71.765</span></div>
+            <div class="row"><span>Std</span><span>15.97</span><span>15.316</span></div>
+            <div class="row tests"><span>KS test</span><span colspan="2">stat=0.797 &nbsp; p=0.0 &nbsp; ⚠ drifted</span></div>
+            <div class="row tests"><span>PSI</span><span colspan="2">7.168 (significant) &nbsp; ⚠ drifted</span></div>
+            
+        </div></div>
+</body>
+</html>
