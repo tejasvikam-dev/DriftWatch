@@ -1,0 +1,5 @@
+echo "*.parquet
+reference.csv
+current.csv
+drift_report.html
+__pycache__/" > .gitignore
