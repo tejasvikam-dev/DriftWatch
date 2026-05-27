@@ -25,53 +25,95 @@
 </head>
 <body>
   <h1>Drift Report</h1>
-  <div class="meta">Reference: <b>sample_data/reference.csv</b> &nbsp;|&nbsp; Current: <b>sample_data/current.csv</b> &nbsp;|&nbsp; 2026-05-26 14:50</div>
+  <div class="meta">Reference: <b>reference.csv</b> &nbsp;|&nbsp; Current: <b>current.csv</b> &nbsp;|&nbsp; 2026-05-26 08:16</div>
   <div class="summary">
-    <div class="box"><div class="n">3</div><div class="l">Columns</div></div>
-    <div class="box"><div class="n" style="color:#ef4444">2</div><div class="l">Drifted</div></div>
-    <div class="box"><div class="n" style="color:#22c55e">1</div><div class="l">Stable</div></div>
+    <div class="box"><div class="n">6</div><div class="l">Columns</div></div>
+    <div class="box"><div class="n" style="color:#ef4444">4</div><div class="l">Drifted</div></div>
+    <div class="box"><div class="n" style="color:#22c55e">2</div><div class="l">Stable</div></div>
   </div>
   <div class="cards">
         <div class="card" style="border-top:3px solid #ef4444">
           <div class="card-head">
-            <span class="col-name">age</span>
+            <span class="col-name">trip_distance</span>
             <span class="badge" style="background:#ef4444">DRIFT</span>
           </div>
           <div class="col-type">numerical</div>
           <div class="grid-head"><span>Metric</span><span>Reference</span><span>Current</span></div>
           
-            <div class="row"><span>Mean</span><span>34.82</span><span>49.259</span></div>
-            <div class="row"><span>Std</span><span>9.492</span><span>12.084</span></div>
-            <div class="row tests"><span>KS test</span><span colspan="2">stat=0.506 &nbsp; p=0.0 &nbsp; ⚠ drifted</span></div>
-            <div class="row tests"><span>PSI</span><span colspan="2">1.924 (significant) &nbsp; ⚠ drifted</span></div>
+            <div class="row"><span>Mean</span><span>3.102</span><span>3.372</span></div>
+            <div class="row"><span>Std</span><span>4.385</span><span>4.434</span></div>
+            <div class="row tests"><span>KS test</span><span colspan="2">stat=0.0358 &nbsp; p=0.0033 &nbsp; ⚠ drifted</span></div>
+            <div class="row tests"><span>PSI</span><span colspan="2">0.0156 (none) &nbsp; ✓ ok</span></div>
+            
+        </div>
+        <div class="card" style="border-top:3px solid #ef4444">
+          <div class="card-head">
+            <span class="col-name">fare_amount</span>
+            <span class="badge" style="background:#ef4444">DRIFT</span>
+          </div>
+          <div class="col-type">numerical</div>
+          <div class="grid-head"><span>Metric</span><span>Reference</span><span>Current</span></div>
+          
+            <div class="row"><span>Mean</span><span>12.529</span><span>18.282</span></div>
+            <div class="row"><span>Std</span><span>12.196</span><span>17.33</span></div>
+            <div class="row tests"><span>KS test</span><span colspan="2">stat=0.266 &nbsp; p=0.0 &nbsp; ⚠ drifted</span></div>
+            <div class="row tests"><span>PSI</span><span colspan="2">0.2326 (significant) &nbsp; ⚠ drifted</span></div>
+            
+        </div>
+        <div class="card" style="border-top:3px solid #ef4444">
+          <div class="card-head">
+            <span class="col-name">tip_amount</span>
+            <span class="badge" style="background:#ef4444">DRIFT</span>
+          </div>
+          <div class="col-type">numerical</div>
+          <div class="grid-head"><span>Metric</span><span>Reference</span><span>Current</span></div>
+          
+            <div class="row"><span>Mean</span><span>2.312</span><span>3.32</span></div>
+            <div class="row"><span>Std</span><span>2.802</span><span>3.581</span></div>
+            <div class="row tests"><span>KS test</span><span colspan="2">stat=0.2112 &nbsp; p=0.0 &nbsp; ⚠ drifted</span></div>
+            <div class="row tests"><span>PSI</span><span colspan="2">0.0408 (none) &nbsp; ✓ ok</span></div>
+            
+        </div>
+        <div class="card" style="border-top:3px solid #ef4444">
+          <div class="card-head">
+            <span class="col-name">total_amount</span>
+            <span class="badge" style="background:#ef4444">DRIFT</span>
+          </div>
+          <div class="col-type">numerical</div>
+          <div class="grid-head"><span>Metric</span><span>Reference</span><span>Current</span></div>
+          
+            <div class="row"><span>Mean</span><span>18.68</span><span>26.858</span></div>
+            <div class="row"><span>Std</span><span>15.078</span><span>21.592</span></div>
+            <div class="row tests"><span>KS test</span><span colspan="2">stat=0.3202 &nbsp; p=0.0 &nbsp; ⚠ drifted</span></div>
+            <div class="row tests"><span>PSI</span><span colspan="2">0.1402 (moderate) &nbsp; ⚠ drifted</span></div>
             
         </div>
         <div class="card" style="border-top:3px solid #22c55e">
           <div class="card-head">
-            <span class="col-name">income</span>
+            <span class="col-name">passenger_count</span>
             <span class="badge" style="background:#22c55e">OK</span>
           </div>
           <div class="col-type">numerical</div>
           <div class="grid-head"><span>Metric</span><span>Reference</span><span>Current</span></div>
           
-            <div class="row"><span>Mean</span><span>61080.274</span><span>61550.934</span></div>
-            <div class="row"><span>Std</span><span>14910.983</span><span>15929.265</span></div>
-            <div class="row tests"><span>KS test</span><span colspan="2">stat=0.035 &nbsp; p=0.5729 &nbsp; ✓ ok</span></div>
-            <div class="row tests"><span>PSI</span><span colspan="2">0.0137 (none) &nbsp; ✓ ok</span></div>
+            <div class="row"><span>Mean</span><span>1.415</span><span>1.379</span></div>
+            <div class="row"><span>Std</span><span>1.004</span><span>0.93</span></div>
+            <div class="row tests"><span>KS test</span><span colspan="2">stat=0.01 &nbsp; p=0.964 &nbsp; ✓ ok</span></div>
+            <div class="row tests"><span>PSI</span><span colspan="2">0.0033 (none) &nbsp; ✓ ok</span></div>
             
         </div>
-        <div class="card" style="border-top:3px solid #ef4444">
+        <div class="card" style="border-top:3px solid #22c55e">
           <div class="card-head">
-            <span class="col-name">score</span>
-            <span class="badge" style="background:#ef4444">DRIFT</span>
+            <span class="col-name">payment_type</span>
+            <span class="badge" style="background:#22c55e">OK</span>
           </div>
           <div class="col-type">numerical</div>
           <div class="grid-head"><span>Metric</span><span>Reference</span><span>Current</span></div>
           
-            <div class="row"><span>Mean</span><span>28.761</span><span>71.765</span></div>
-            <div class="row"><span>Std</span><span>15.97</span><span>15.316</span></div>
-            <div class="row tests"><span>KS test</span><span colspan="2">stat=0.797 &nbsp; p=0.0 &nbsp; ⚠ drifted</span></div>
-            <div class="row tests"><span>PSI</span><span colspan="2">7.168 (significant) &nbsp; ⚠ drifted</span></div>
+            <div class="row"><span>Mean</span><span>1.228</span><span>1.222</span></div>
+            <div class="row"><span>Std</span><span>0.452</span><span>0.5</span></div>
+            <div class="row tests"><span>KS test</span><span colspan="2">stat=0.0232 &nbsp; p=0.1356 &nbsp; ✓ ok</span></div>
+            <div class="row tests"><span>PSI</span><span colspan="2">0.0162 (none) &nbsp; ✓ ok</span></div>
             
         </div></div>
 </body>
